@@ -37,13 +37,18 @@ function getWeather() {
     }
 }
 
-//Function to display the current weather data from pulling information from array of the API
+//Function to display the current weather data from pulling information from array of the API. Used URL from API to retrieve information for the icons
 function displayCurrentWeather(data) {
+    var icon = data.weather[0].icon;
+    var iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+
     currentWeather.innerHTML = `
-<h2>${data.name}, ${data.sys.country}</h2>
-<p>Temperature: ${data.main.temp} °F</p>
-<p>Wind Speed: ${data.wind.speed} MPH</p>
-<p>Humidity: ${data.main.humidity} %</p>
+        <h2>${data.name}, ${data.sys.country}</h2>
+        <img src="${iconUrl}">
+        <p>Temperature: ${data.main.temp} °F</p>
+        <p>Wind Speed: ${data.wind.speed} MPH</p>
+        <p>Humidity: ${data.main.humidity} %</p>
+       
 `;
 }
 
@@ -51,23 +56,27 @@ function displayCurrentWeather(data) {
 function displayForecast(data) {
     //clears previous display data
     forecast.innerHTML = '';
-    // Loops through the weather data & get info from data list array for wind speed, temp and humidity
+    // Loops through the weather data & get info from data list array for wind speed, temp and humidity. Use URL from API to retrieve info for icons.
     for (let i = 0; i < data.list.length; i += 8) {
         var date = new Date(data.list[i].dt * 1000).toLocaleDateString('en-US');
         var temperature = data.list[i].main.temp;
         var windSpeed = data.list[i].wind.speed;
         var humidity = data.list[i].main.humidity;
+        var icon = data.list[i].weather[0].icon;
+        var iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
 
         //Create a new forecast item boxes
         var forecastItem = document.createElement('div');
         forecastItem.classList.add('forecast-item');
 
-        //Set inner HTML for the forecast item information calling variables from above
+        //Sets inner HTML for the forecast item information calling variables from above
         forecastItem.innerHTML = `
             <p>${date}</p>
+            <img src="${iconUrl}">
             <p>Temperature: ${temperature} °F</p>
             <p>Wind Speed: ${windSpeed} MPH</p>
             <p>Humidity: ${humidity} %</p>
+            
         `;
 
         //Appends the forecast item to the forecast squares
