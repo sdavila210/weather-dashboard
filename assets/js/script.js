@@ -3,10 +3,13 @@ var cityInput = document.getElementById('form-input');
 var currentWeather = document.getElementById('current-weather');
 var forecast = document.getElementById('forecast');
 var searchForm = document.getElementById('search-form');
+var weatherContainer = document.getElementById('weather-container');
+var searchButton = document.getElementById('search-button');
 
 //Adds event when you click the search button to get the weather
-searchForm.addEventListener('click', function (event) {
+searchButton.addEventListener('click', function (event) {
     event.preventDefault();
+    weatherContainer.style.display = 'block';
     getWeather();
 });
 
@@ -38,10 +41,9 @@ function getWeather() {
 function displayCurrentWeather(data) {
     currentWeather.innerHTML = `
 <h2>${data.name}, ${data.sys.country}</h2>
-<p>Temperature: ${data.main.temp}</p>
-<p>Humidity: ${data.main.humidity}</p>
-<p>Wind Speed: ${data.wind.speed}</p>
-
+<p>Temperature: ${data.main.temp} °F</p>
+<p>Wind Speed: ${data.wind.speed} MPH</p>
+<p>Humidity: ${data.main.humidity} %</p>
 `;
 }
 
@@ -63,9 +65,9 @@ function displayForecast(data) {
         //Set inner HTML for the forecast item information calling variables from above
         forecastItem.innerHTML = `
             <p>${date}</p>
-            <p>Temperature: ${temperature}</p>
-            <p>Wind Speed: ${windSpeed}</p>
-            <p>Humidity: ${humidity}</p>
+            <p>Temperature: ${temperature} °F</p>
+            <p>Wind Speed: ${windSpeed} MPH</p>
+            <p>Humidity: ${humidity} %</p>
         `;
 
         //Appends the forecast item to the forecast squares

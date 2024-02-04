@@ -28,6 +28,10 @@ button:hover {
     background-color: #284b73;
 }
 
+#weather-container {
+    display: none;
+}
+
 .forecast-item {
     margin: 10px;
     padding: 10px;
