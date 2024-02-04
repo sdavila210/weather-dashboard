@@ -10,7 +10,14 @@ body {
 #header {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: #4c7db2;
+    color: white;
+}
+
+#search-form,
+#weather-container,
+#search-container {
+    text-align: center;
 }
 
 input {
