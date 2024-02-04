@@ -35,3 +35,7 @@ button:hover {
     display: inline-block;
     text-align: center;
 }
+
+ul {
+    list-style-type: none;
+}
