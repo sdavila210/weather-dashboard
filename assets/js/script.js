@@ -84,8 +84,8 @@ function displayForecast(data) {
     }
 }
 
-//Initializes the city history array from local storage
-var cityHistory = JSON.parse(localStorage.getItem('cityHistory'));
+//Initializes the city history array from local storage and/or creates an array with search history
+var cityHistory = JSON.parse(localStorage.getItem('cityHistory')) || [];
 
 //Function to add city to history array, and save to local storage, then call the function to display
 function addToCityHistory(city) {
