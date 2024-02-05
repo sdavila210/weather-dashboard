@@ -23,6 +23,8 @@ The following images demonstrate the web application's appearance:
 
 Here is the link to the deployed application:
 
+https://sdavila210.github.io/weather-dashboard/
+
 
 ## Credits
 

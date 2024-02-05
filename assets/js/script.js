@@ -40,7 +40,7 @@ function getWeather() {
 //Function to display the current weather data from pulling information from array of the API. Used URL from API to retrieve information for the icons
 function displayCurrentWeather(data) {
     var icon = data.weather[0].icon;
-    var iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+    var iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
     currentWeather.innerHTML = `
         <h2>${data.name}, ${data.sys.country}</h2>
@@ -63,7 +63,7 @@ function displayForecast(data) {
         var windSpeed = data.list[i].wind.speed;
         var humidity = data.list[i].main.humidity;
         var icon = data.list[i].weather[0].icon;
-        var iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+        var iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
         //Create a new forecast item boxes
         var forecastItem = document.createElement('div');
